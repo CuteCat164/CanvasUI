@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivot</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="control.css">
+    <style>
+        #main-panel{
+            background-color: var(--green-5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0px;
+            color: white;
+            transition: height 450ms;
+            padding: 0;
+        }
+        body > .open {
+            height: 100% !important;
+            padding: 2rem !important;
+        }
+        #toggle, #add{
+            background-color: var(--green-1);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 75px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: larger;
+            border-radius: 0 0 12px 0;
+            font-weight: bolder;
+        }
+        #add{
+            display: none;
+            left: 100px;
+            border-radius: 0 0 12px 12px;
+        }
+        .open > #add { display: flex;}
+
+        #main-panel .panel { bottom: 100px; position: relative;}
+        .open > .panel { bottom: unset !important; position: unset !important;}
+
+
+        #add, #toggle { 
+            cursor: default !important;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 2rem;
+            padding: 0.8rem 2rem;
+            justify-content: center;
+            align-items: center;
+            height: 4rem;
+        }
+        .control-buttons > label {
+            background-color: brown;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="main-panel" class="section">
+        <div id="toggle" onclick="this.parentNode.classList.toggle('open'); this.innerHTML = this.innerHTML === '▼' ? '▲' : '▼' ">▼</div>
+        <div id="add" onclick="addElement()">+</div>
+    </div>
+    <div class="section">
+        <div class="panel">
+            <div id="con"></div>
+        </div>
+    </div>
+    
+
+    <script src="canvasui.js"></script>
+    <script src="control.js"></script>
+    <script>
+        let w = new CanvasUI('con', false, { width: 50, height: 50, autoResize: true });
+
+        let mainPanel = document.getElementById('main-panel');
+
+        function addElement(parent = w){
+            let panel = document.createElement('div');
+            panel.className = 'panel';
+            let ele = new TextUI(parent);
+            CreateControlPanel(panel, ele, true);
+            mainPanel.appendChild(panel);
+            ele.panel = panel;
+        }
+    </script>
+</body>
+</html>

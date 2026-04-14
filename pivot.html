@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivot</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="control.css">
+</head>
+<body>
+
+
+    <div class="section">
+        <div class="panel">
+            <div id="con"></div>
+        </div>
+
+        <div class="panel" id="controlsPanel"> </div>
+    </div>
+
+    <script src="canvasui.js"></script>
+    <script src="control.js"></script>
+    <script>
+        let w = new CanvasUI('con', false, { width: 50, height: 50, autoResize: true });
+
+
+        let ele = new TextUI(w).setCoord({ scaleX: 0.5, scaleY: 0.5 }).setSize({ x: 100, y: 100});
+        let circle = new BasicUI(w)
+            .setColor('red')
+            .setBorder({borderRadius: 7.5})
+            .setCoord({scaleX:0.5, scaleY:0.5})
+            .setSize({x:15,y:15})
+            .setPivot({scaleX: 0.5, scaleY: 0.5});
+        
+        const div = document.getElementById('controlsPanel');
+        CreateControlPanel(div, ele);
+    </script>
+</body>
+</html>

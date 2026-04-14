@@ -1,0 +1,64 @@
+:root {
+    /*  Colors  */
+    --green-1: #5bc595;
+    --green-2: #48be89;
+    --green-3: #3eaf7c;
+    --green-4: #379c6f;
+    --green-5: #318961;
+    --green-6: #2a7754;
+    --green-7: #236447;
+
+    --blurple-1: #707bf4;
+    --blurple-2: #6571f3;
+    --blurple-3: #5865f2;
+    --blurple-4: #505cdc;
+    --blurple-5: #4752c4;
+    --blurple-6: #3c45a5;
+    --blurple-7: #343b8f;
+
+    --blue: #007BFF;
+
+    --black-1: #374151;
+    --black-2: #353b45;
+    --black-3: #1d1d1d;
+
+    --white-1: white;
+    --white-2: #f2f3f4;
+    --white-3: whitesmoke;
+    --white-4: #cccccc;
+    --white-5: #bfc0c1;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+body { 
+    scrollbar-width: none !important;
+    background-color: var(--black-1);
+    height: 100vh; 
+    font-family: sans-serif;
+}
+
+#con {background-color: var(--white-2)}
+
+
+.section {
+    height: 100vh;
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+.panel{
+    background-color: #959aa3;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 1.5rem;
+    flex: 1;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
